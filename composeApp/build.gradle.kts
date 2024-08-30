@@ -43,7 +43,7 @@ kotlin {
             implementation(compose.components.uiToolingPreview)
             implementation(libs.androidx.lifecycle.viewmodel)
             implementation(libs.androidx.lifecycle.runtime.compose)
-            api(libs.koin.compose.viewmodel)
+            implementation(libs.koin.compose.viewmodel.nav)
         }
     }
 }
