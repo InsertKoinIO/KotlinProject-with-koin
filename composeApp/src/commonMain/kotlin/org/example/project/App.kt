@@ -21,7 +21,7 @@ import org.koin.compose.viewmodel.koinViewModel
 @Composable
 @Preview
 fun App() {
-    KoinApplication(koinConfiguration()){
+    KoinApplication(::koinConfiguration){
         MainScreen()
     }
 }
