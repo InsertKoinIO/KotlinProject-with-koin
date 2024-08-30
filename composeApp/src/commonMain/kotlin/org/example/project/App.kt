@@ -32,12 +32,8 @@ fun App() {
                 composable("home") {
                     MainScreen()
                 }
-//                composable("details") {
-//                    DetailScreen(onBack = { navController.popBackStack() })
-//                }
             }
         }
-//        MainScreen()
     }
 }
 
