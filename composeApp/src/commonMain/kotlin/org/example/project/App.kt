@@ -20,12 +20,17 @@ import kotlinproject.composeapp.generated.resources.Res
 import kotlinproject.composeapp.generated.resources.compose_multiplatform
 import org.koin.compose.KoinApplication
 import org.koin.compose.viewmodel.koinNavViewModel
-import org.koin.compose.viewmodel.koinViewModel
+import org.koin.core.logger.Level
 
 @Composable
 @Preview
 fun App() {
-    KoinApplication(::koinConfiguration){
+    KoinApplication(
+        application = {
+            printLogger(Level.DEBUG)
+            modules(appModule)
+        }
+    ){
         val navController = rememberNavController()
         MaterialTheme {
             NavHost(navController = navController, startDestination = "home") {
@@ -48,12 +53,14 @@ fun MainScreen() {
             }
             AnimatedVisibility(showContent) {
                 val greeting = greetViewModel.greet()
+                val id = greetViewModel.getId()
                 Column(
                     Modifier.fillMaxWidth(),
                     horizontalAlignment = Alignment.CenterHorizontally
                 ) {
                     Image(painterResource(Res.drawable.compose_multiplatform), null)
                     Text("Compose: $greeting")
+                    Text("Id: $id")
                 }
             }
         }
